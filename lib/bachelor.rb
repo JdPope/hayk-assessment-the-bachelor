@@ -26,6 +26,13 @@ end
 #   end
 # end
 
+def get_contestant_name(data, occupation)
+  find_by_occupation = data.map{|season, cast| cast}
+  .flatten
+  .find{|contestant| contestant["occupation"] == occupation}
+  find_by_occupation["name"]
+end
+
 def count_contestants_by_hometown(data, hometown)
   counter = 0
   data.each do |season, contestants|
